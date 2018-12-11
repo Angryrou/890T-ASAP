@@ -24,16 +24,16 @@ It is very easy for student to use it and helps them mainly focus on the problem
 There are three operators a user can use.
 1. Choose a option 
 
-   ![demo1](/Users/kawhi/Desktop/demo1.png)
+   ![demo1](./instruction_pics/demo1.png)
 
 2. Click "OK" button to confirm the choice. It will show the answer for the quesiton when "OK" is clicked if a choice has been made.
 
-   ![demo2](/Users/kawhi/Desktop/demo2.png)
+   ![demo2](./instruction_pics/demo2.png)
 
 3. Click "Next" button to go to the next question.
 
 A student can see their score both for the current round and the entire quesiotn respectively.
-​    ![demo3](/Users/kawhi/Desktop/demo3.png)
+​    ![demo3](./instruction_pics/demo3.png)
 
 
 
@@ -41,7 +41,7 @@ A student can see their score both for the current round and the entire quesiotn
 
 Step 1: Follow the format of a JSON file as follows. 
 
-```json
+```
 {
   "1": { // "1" is the id of each question
     "sec": "1", // the section of current question
@@ -73,7 +73,7 @@ Step 1: Follow the format of a JSON file as follows.
 
 Step 2: Change the JSON format to a one-line stype by using an online JSON [tool](https://jsonformatter.org/) 
 
-![demo4](/Users/kawhi/Dropbox/UMass/18fall/890T/890T-ASAP/demo4.png)
+![demo4](./instruction_pics/demo4.png)
 
 Step 3: Replace or add the new online JSON string in the `./question_pool/test.json` file.
 
