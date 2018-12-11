@@ -28,6 +28,19 @@ function init() {
 	updateQuestion();
 }
 
+// init the variables when the page is loaded
+function initVariables() {
+	if (!debug && sec_size != q.length) {
+		window.alert("sec_size and json cannot match");
+	}
+	current_round_level = 1;
+	initCurrent();
+	q_ids_generate(current_wrong_count_list);
+	total_score = 0;
+	total_wrong_count_list = new Array(sec_size).fill(0);
+}
+
+// update the showed questions
 function updateQuestion() {
 	var q_id = current_q_ids[current_q_pos];
 	var q = q_pool[q_id];
@@ -40,6 +53,7 @@ function updateQuestion() {
 	document.getElementById("D_content").innerText = q["choices"]["D"];
 }
 
+// update the answer and scores 
 function updateAnswerAndScore() {
 	var q_id = current_q_ids[current_q_pos];
 	var q = q_pool[q_id];
@@ -62,6 +76,7 @@ function updateAnswerAndScore() {
 	console.log("total_wrong_count_list: " + total_wrong_count_list);
 }
 
+// init the HTML elements to present a question
 function initHTML() {
 	// title part
 	document.getElementById("round_id").innerText = current_round_level;
@@ -72,10 +87,10 @@ function initHTML() {
 	document.getElementById("answer_section").style.display = "none";
 }
 
+// build index on a key. The value of key is adaptively chosen in different rounds.
 function buildIndexOn(key) {
 	// build index on a certain key. 
-	// Here we do sec first. Later we can build Index for difficulty too.
-	// TODO:
+	// Here we do sec first. We can build Index for difficulty as the future work
 	idx = {};
 	for (var i in q_pool) {
 		sec = q_pool[i]["sec"];
@@ -88,56 +103,17 @@ function buildIndexOn(key) {
 	return idx;
 }
 
+// init the states when a new round begins
 function initCurrent() {
 	current_q_pos = 0;
 	current_score = 0;
 	current_choice = "X";
 	current_wrong_count_list = new Array(sec_size).fill(0);
 }
-function initVariables() {
 
-	if (!debug && sec_size != q.length) {
-		window.alert("sec_size and json cannot match");
-	}
-	current_round_level = 1;
-	initCurrent();
-	q_ids_generate(current_wrong_count_list);
-	total_score = 0;
-	total_wrong_count_list = new Array(sec_size).fill(0);
-}
-
-function click_next() {
-	current_q_pos += 1;
-
-	if (current_q_pos > 3) {
-		current_round_level += 1;
-		if (current_round_level > 3) {
-			window.alert("Finished! Click ok to restart!");
-			init();
-			return;
-		}
-		q_ids_generate(current_wrong_count_list);
-		initCurrent();
-		initHTML();
-
-	}
-	document.getElementById("current_q_pos").innerText = current_q_pos+1;
-	updateQuestion();
-	document.getElementById("answer_section").style.display = "none";
-	document.getElementById("ok_btn").disabled = false;
-	document.getElementById('r1').disabled = false;
-	document.getElementById('r2').disabled = false;
-	document.getElementById('r3').disabled = false;
-	document.getElementById('r4').disabled = false;
-	document.getElementById('r1').checked = false;
-	document.getElementById('r2').checked = false;
-	document.getElementById('r3').checked = false;
-	document.getElementById('r4').checked = false;
-	current_choice = "X";
-}
-
+// actions happens when click ok botton
 function click_ok() {
-	// choose ok to confirm the answer, then give the key and right or wrong
+	// choose ok to confirm the answer, then give the result and explanation.
 
 	if (document.getElementById('r1').checked) {
 		current_choice = document.getElementById('r1').value;
@@ -166,11 +142,37 @@ function click_ok() {
 
 }
 
-// function finished() {
-// 	// when 3 rounds are all finished, give some feedback based on statatics.
+// actions happens when click next botton
+function click_next() {
+	current_q_pos += 1;
 
-// }
+	if (current_q_pos > 3) {
+		current_round_level += 1;
+		if (current_round_level > 3) {
+			window.alert("Finished! Click ok to restart!");
+			init();
+			return;
+		}
+		q_ids_generate(current_wrong_count_list);
+		initCurrent();
+		initHTML();
+	}
+	document.getElementById("current_q_pos").innerText = current_q_pos+1;
+	updateQuestion();
+	document.getElementById("answer_section").style.display = "none";
+	document.getElementById("ok_btn").disabled = false;
+	document.getElementById('r1').disabled = false;
+	document.getElementById('r2').disabled = false;
+	document.getElementById('r3').disabled = false;
+	document.getElementById('r4').disabled = false;
+	document.getElementById('r1').checked = false;
+	document.getElementById('r2').checked = false;
+	document.getElementById('r3').checked = false;
+	document.getElementById('r4').checked = false;
+	current_choice = "X";
+}
 
+// the function to generate question ids for a new round of questions
 function q_ids_generate(wrong_count_list) {
 	// generate question ids from the wrong count list
 	// step1: compute the count chosen from each section
@@ -187,6 +189,7 @@ function q_ids_generate(wrong_count_list) {
 
 	current_q_ids = new Array(q_per_round).fill(-1);
 	var add_idx = 0
+	
 	// step2 choose some count of questios from each section
 	for (var j = 0; j < sec_size; j ++) {
 		var q_list = sec_index[j+1] // question list for one section
@@ -207,6 +210,7 @@ function q_ids_generate(wrong_count_list) {
 	console.log(current_q_ids)
 }
 
+// a helper function for q_ids_generate
 function randomChoose(t) {
 	// chooce c number from 0, 1, ..., t-1
 	return Math.floor(Math.random() * t);
