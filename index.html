@@ -20,63 +20,60 @@
       <!-- title -->
       <div class="am-panel am-panel-primary">
         <h1 class="am-panel-hd"> <center> ASAP: A Student-centered Adaptive Practice reviewing game </center> </h1>
-      </div> 
-
+      </div>
       <!-- States: # of round and current score -->
       <section class="am-panel am-panel-default">
         <header class="am-panel-hd">
           <h3 class="am-panel-title"> Let's Start ASAP !!! </h3>
         </header>
         <div class="am-panel-bd">
-          You are currently in Round <span id="round_id"> ? </span> <br>
-          Score: <span id = "current_score"> ? </span> / 4 <br>
-          Total Score: <span id = "total_score"> ? </span> / 12
+          You are currently in Round <span id="round_id"> ?</span>, &#9;
+          Score: <span id = "current_score"> ? </span> / 4, &#9;
+          Total Score: <span id = "total_score"> ? </span> / 12.
         </div>
       </section>
-
       <!-- question panel -->
-      <section class="am-panel am-panel-default">
+      <section class="am-panel am-panel-default" style="margin-bottom: 0px;">
         <header class="am-panel-hd">
           <h3 class="am-panel-title"> Round
             <span id = "current_round_level"> 1 </span> :
             Question
             <span id = "current_q_pos"> 1 </span></h3>
-          </header>
-          <div class="am-panel-bd">
-            <!-- question content -->
-            <div class="am-input-group am-input-group-default">
-              <div class="am-input-group-label" id="question_content">
-                1+1=？
-              </div>
-            </div>
-            <div class="am-input-group-label" id="choices">
-              <label class="am-radio" align="left">
-                <input type="radio" name="choice" value="A" id="r1" data-am-ucheck>
-                A: <span id="A_content"> 1 </span>
-              </label>
-              <label class="am-radio" align="left">
-                <input type="radio" name="choice" value="B" id="r2" data-am-ucheck>
-                B: <span id="B_content"> 2 </span>
-              </label>
-              <label class="am-radio" align="left">
-                <input type="radio" name="choice" value="C" id="r3" data-am-ucheck>
-                C: <span id="C_content"> 3 </span>
-              </label>
-              <label class="am-radio" align="left">
-                <input type="radio" name="choice" value="D" id="r4" data-am-ucheck>
-                D: <span id="D_content"> 4 </span>
-              </label>
-            </div>
-            <button type="button" class="am-btn am-btn-primary am-btn-block am-active" id="ok_btn" onclick="click_ok();"> OK </button>
-          </div>
-      </section>
-
-      <!-- answer -->
-      <section class="am-panel am-panel-default" id = "answer_section">
-        <header class="am-panel-hd">
-          <h3 class="am-panel-title"> Answer </h3>
         </header>
         <div class="am-panel-bd">
+          <!-- question content -->
+          <div class="am-input-group am-input-group-default">
+            <div class="am-input-group-label" id="question_content">
+              1+1=？
+            </div>
+          </div>
+          <div class="am-input-group-label" id="choices">
+            <label class="am-radio" align="left">
+              <input type="radio" name="choice" value="A" id="r1" data-am-ucheck>
+              A: <span id="A_content"> 1 </span>
+            </label>
+            <label class="am-radio" align="left">
+              <input type="radio" name="choice" value="B" id="r2" data-am-ucheck>
+              B: <span id="B_content"> 2 </span>
+            </label>
+            <label class="am-radio" align="left">
+              <input type="radio" name="choice" value="C" id="r3" data-am-ucheck>
+              C: <span id="C_content"> 3 </span>
+            </label>
+            <label class="am-radio" align="left">
+              <input type="radio" name="choice" value="D" id="r4" data-am-ucheck>
+              D: <span id="D_content"> 4 </span>
+            </label>
+          </div>
+          <button type="button" class="am-btn am-btn-primary am-btn-block am-active" id="ok_btn" onclick="click_ok();"> OK </button>
+        </div>
+        <!-- answer -->
+        <div class="am-panel-bd" id="answer_section">
+          <div class="am-input-group am-input-group-default">
+            <div class="am-input-group-label">
+              Answer
+            </div>
+          </div>
           <div class="am-input-group am-input-group-default">
             <div class="am-input-group-label" id="answer_content">
               <p align="left"> <span id = "result_sen"> ??? Cong! You are right! </span> <br>
@@ -90,9 +87,8 @@
           </div>
           <button type="button" class="am-btn am-btn-primary am-active am-btn-block" id="next_btn" onclick="click_next();"> Next </button>
         </div>
-        <!-- <button type="button" class="am-btn am-btn-primary am-btn-block" id = "next_btn"> Next </button> -->
       </section>
-      <div class="am-alert"> Author: Chenghao Lyu. </div>
+      <div style="margin-top: 0px"><center><font size="2">Author: Chenghao Lyu.</font> </center></div>
     </div>
   </div>
 </body>
