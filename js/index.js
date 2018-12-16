@@ -151,6 +151,16 @@ function click_next() {
 		if (current_round_level > 3) {
 			window.alert("Finished! Click ok to restart!");
 			init();
+			document.getElementById("answer_section").style.display = "none";
+			document.getElementById("ok_btn").disabled = false;
+			document.getElementById('r1').disabled = false;
+			document.getElementById('r2').disabled = false;
+			document.getElementById('r3').disabled = false;
+			document.getElementById('r4').disabled = false;
+			document.getElementById('r1').checked = false;
+			document.getElementById('r2').checked = false;
+			document.getElementById('r3').checked = false;
+			document.getElementById('r4').checked = false;
 			return;
 		}
 		q_ids_generate(current_wrong_count_list);
