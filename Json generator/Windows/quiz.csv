@@ -1,0 +1,13 @@
+﻿id,section,question,A,B,C,D,key,explain
+1,1,How many distinct binary patterns are possible with 5 bits?,10,25,32,5!,C,2^5=32
+2,2,"What day of the week is February 29, 2020?",Monday,Wednesday,Friday,Saturday,D,See page 17 of the Companion
+3,3,How many bits are in 4 kilobytes?,32768,4000,40000,32000,A,4 kilobytes x 1024 bytes per kilobyte x 8 bits per byte
+4,4,Convert the decimal number 27 into base 4.,123,124,125,126,A,See page 38 of the Companion
+5,1,What is the closest named color to #7DFB01?,Magenta,LawnGreen,Cyan,LightGray,B,See page 153 of the Companion
+6,2,What is the maximum unsigned number that will fit into 5 bits?,30,31,32,33,B,(2^5)-1 = 31
+7,3,What is the decimal value of the hexadecimal number D9?,128,123,129,217,D,See page 41 of the Companion
+8,4,What is the sum of the complex numbers 5-7i and 2+3i?,4-7i,3+7i,7-4i,7+3i,C,"5+2, -7i+3i = 7-4i"
+9,1,What is the math (non-computer) way of writing the number 7.89E+5 ?,78900,789000,7890000,7890,B,2^5=32
+10,2,What is the product of complex numbers 5-7i and 2+3i?,31+i,30+i,31+2i,31-i,A,5x2 + 5x3i + -7ix2 + -7ix3i = 10 + 15i -14i + 21 = 31+1i
+11,3,What is the maximum signed number that will fit into 5 bits?,13,14,15,16,C,(2^(5-1))-1 = 15
+12,4,What is the sum of the complex numbers 5-7i and 2+3i?,4-7i,3+7i,7-4i,7+3i,C,"5+2, -7i+3i = 7-4i"
